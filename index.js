@@ -4,12 +4,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 const authRoutes = require("./routes/authRoutes");
 const appointmentRoutes = require("./routes/appointmentRoutes");
-
+const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-
+app.use(cors());
 const mongoConnect = async () => {
   await mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
