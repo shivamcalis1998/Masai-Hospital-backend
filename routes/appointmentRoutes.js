@@ -6,23 +6,25 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     const {
-      doctorName,
-      doctorImageUrl,
-      doctorSpecialization,
-      doctorExperience,
-      doctorLocation,
-      appointmentSlots,
-      appointmentFee,
+      name,
+      image,
+      specialization,
+      experience,
+      date,
+      location,
+      slots,
+      fee,
     } = req.body;
 
     const newAppointment = new Appointment({
-      name: doctorName,
-      imageUrl: doctorImageUrl,
-      specialization: doctorSpecialization,
-      experience: doctorExperience,
-      location: doctorLocation,
-      slots: appointmentSlots,
-      fee: appointmentFee,
+      name,
+      image,
+      specialization,
+      experience,
+      location,
+      date,
+      slots,
+      fee,
     });
 
     await newAppointment.save();
